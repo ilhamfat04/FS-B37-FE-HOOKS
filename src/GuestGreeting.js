@@ -6,10 +6,10 @@ export default function GuestGreeting() {
     // Create DidMount & WillUnmount with useEffect 
     // inside it can print "Guest Greeting Component Did Mount" & "Guest Greeting Component Will Unmount"
     useEffect(() => {
-        console.log("Guest Greeting Component Did Mount");
-        return () => {
-            console.log("Guest Greeting Component Will Unmount");
-        }
+        // console.log("Guest Greeting Component Did Mount");
+        // return () => {
+        //     console.log("Guest Greeting Component Will Unmount");
+        // }
     }, [])
 
     return (

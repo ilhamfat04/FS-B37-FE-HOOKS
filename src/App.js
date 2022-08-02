@@ -1,5 +1,5 @@
 //import useState & useEffect here
-import { useEffect, useState } from 'react'
+import { useEffect, useContext } from 'react'
 
 import {
     Container,
@@ -12,27 +12,23 @@ import GuestGreeting from './GuestGreeting'
 
 import ExampleComp from './ExampleComp'
 
+import { UserContext } from './context/userContext'
+
 function App() {
 
-    const [state, setState] = useState({
-        isLogin: false,
-        user: {
-            email: '',
-            password: ''
-        }
-    })
+    // declaration state global
+    const [state, dispatch] = useContext(UserContext)
+    // console.log(state);
 
     // Create DidMount with useEffect inside it can print "App Component Did Mount" & state value here
     useEffect(() => {
         console.log("App Component Did Mount");
-        console.log(state);
     })
 
     // Create DidUpdate with useEffect inside it can print "App Component Did Update" & state value here
     useEffect(() => {
         if (state.user.email) {
             console.log("App Component Did Update");
-            console.log(state);
         }
     }, [state])
 
@@ -40,12 +36,15 @@ function App() {
         e.preventDefault()
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
-        setState({
-            isLogin: true,
-            user: {
-                email,
-                password
-            }
+
+        const data = {
+            email,
+            password
+        }
+
+        dispatch({
+            type: 'LOGIN_SUCCESS',
+            payload: data
         })
     }
 

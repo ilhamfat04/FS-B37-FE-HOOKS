@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from './context/userContext'
 
 export default function ExampleComp(props) {
-
-    useEffect(() => {
-        console.log("ExampleComp is Updated by Props");
-    }, [props])
+    const [state, _] = useContext(UserContext)
+    console.log(state);
 
     return (
         <div>Email : { props.user.email }</div>
