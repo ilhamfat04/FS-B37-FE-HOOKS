@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 export default class Welcome extends Component {
 
     //Create method DidMount inside it can print "Welcome Component Did Mount" here...
-
+    componentDidMount() {
+        console.log("Welcome Component Did Mount");
+    }
     //Create method WillUnmount inside it can print "Welcome Component  Will Unmount" here...
 
     render() {
